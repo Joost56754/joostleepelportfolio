@@ -52,10 +52,23 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request, Project $project)
     {
-        //
+        $search = $request->search;
+    
+        $projects = Project::where(function ($query) use ($search) {
+            $query->where('title', 'like', "%$search%")
+                ->orWhere('description', 'like', "%$search%");
+        })
+        ->orWhereHas('category', function ($query) use ($search) {
+            $query->where('name', 'like', "%$search%");
+        })
+        ->get();
+    
+        return view('Projects.index', compact('projects', 'search'));
     }
+    
+    
 
     /**
      * Show the form for editing the specified resource.
