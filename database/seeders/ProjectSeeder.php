@@ -17,16 +17,19 @@ class ProjectSeeder extends Seeder
             'title' => 'Event 1',
             'description' => 'Dit is een test',
             'image' => 'img/Int.jpg',
+            'category_id' => 1,
         ]);
         Project::create([
             'title' => 'Event 1',
             'description' => 'Dit is een test',
             'image' => 'img/zal.jpg',
+            'category_id' => 2,
         ]);
         Project::create([
             'title' => 'Event 1',
             'description' => 'Dit is een test',
             'image' => 'img/bolcom.jpg',
+            'category_id' => 3,
         ]);
     }
 }
