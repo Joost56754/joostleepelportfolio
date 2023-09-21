@@ -31,5 +31,11 @@ class ProjectSeeder extends Seeder
             'image' => 'img/bolcom.jpg',
             'category_id' => 3,
         ]);
+        Project::create([
+            'title' => 'Event 1',
+            'description' => 'Dit is een test',
+            'image' => 'img/Jam.jpg',
+            'category_id' => 3,
+        ]);
     }
 }
