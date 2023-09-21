@@ -93,6 +93,7 @@
     <h1>Mijn projecten</h1>
     <div>
         <a href="/">Home</a>
+        <a href="dashboard">Dashboard</a>
     </div>
 </header>
 <div class="container">
@@ -132,6 +133,7 @@
                 <td>
                     <form action="{{ route('Projects.destroy',$project->id) }}" method="Post">
                         <a class="btn btn-primary" href="{{ route('Projects.edit',$project->id) }}">Bewerk</a>
+                        <a class="btn btn-info" href="{{ route('Projects.show',$project->id) }}">Project verwijderen?</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Verwijder</button>
@@ -141,6 +143,7 @@
         @endforeach
         </tbody>
     </table>
+</div>
 </div>
 </body>
 </html>

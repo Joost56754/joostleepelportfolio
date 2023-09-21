@@ -13,7 +13,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-         $projects = Project::all();
+        $projects = Project::all();
         return view('Projects/index')
             ->with('projects', $projects);
     }
@@ -52,22 +52,25 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Request $request, Project $project)
+    public function locate(Request $request, Project $project)
     {
         $search = $request->search;
-    
+
         $projects = Project::where(function ($query) use ($search) {
             $query->where('title', 'like', "%$search%")
                 ->orWhere('description', 'like', "%$search%");
         })
-        ->orWhereHas('category', function ($query) use ($search) {
-            $query->where('name', 'like', "%$search%");
-        })
-        ->get();
-    
+            ->orWhereHas('category', function ($query) use ($search) {
+                $query->where('name', 'like', "%$search%");
+            })
+            ->get();
+
         return view('Projects.index', compact('projects', 'search'));
     }
-    
+    public function show(Project $Project)
+    {
+        return view('Projects.show',compact('Project'));
+    }
     
 
     /**
@@ -99,9 +102,9 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-public function destroy(Project $Project)
-{
-    $Project->delete();
-    return redirect()->route('Projects.index')->with('succes', 'Project is verwijderd');
-}
+    public function destroy(Project $Project)
+    {
+        $Project->delete();
+        return redirect()->route('Projects.index')->with('succes', 'Project is verwijderd');
+    }
 }
