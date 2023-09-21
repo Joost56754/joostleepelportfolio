@@ -1,53 +1,34 @@
 <x-app-layout>
   <x-slot name="header">
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-          {{ __('Welkom op mijn portfolio site!') }}
-      </h2>
+      <h2 class="font-semibold text-xl text-gray-800 leading-tight"></h2>
       <style>
-          .dropbtn {
-            background-color: black;
-            color: white;
-            padding: 11px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
+          .menu {
+              display: flex;
+              list-style: none;
+              margin: 0;
+              padding: 0;
           }
-          .dropdown {
-            position: relative;
-            display: inline-block;
-            margin-top: 30px
+          .menu li {
+              margin-right: 20px;
           }
-          .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 100px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
+          .menu li:last-child {
+              margin-right: 0;
           }
-          .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
+          .menu a {
+              text-decoration: none;
+              color: #333;
+              font-weight: bold;
+              font-size: 18px;
           }
-          .dropdown-content a:hover {background-color: #f1f1f1}
-
-          .dropdown:hover .dropdown-content {
-            display: block;
-          }
-          .dropdown:hover .dropbtn {
-            background-color: black;
+          .menu a:hover {
+              color: #555;
           }
       </style>
-      <div class="dropdown">
-          <button class="dropbtn">Menu</button>
-          <div class="dropdown-content">
-              <a href="Projects">Mijn projecten</a>
-          </div>
-      </div>
+      <ul class="menu">
+          <li><a href="Projects">Mijn projecten</a></li>
+          <!-- Voeg meer menu-items toe indien nodig -->
+      </ul>
   </x-slot>
-
   <div class="py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -58,4 +39,3 @@
       </div>
   </div>
 </x-app-layout>
-
