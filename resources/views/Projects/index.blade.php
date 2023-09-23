@@ -104,10 +104,10 @@
         </div>
     </div>
     <div class="form-group">
-        <form method="get" action="/search">
+        <form method="get" action="/locate">
             <div class="input-group">
-                <input class="form-control" name="search" placeholder="Search..." value="{{ isset($search) ? $search : ''}}">
-                <button type="submit" class="btn btn-primary">Search</button>
+                <input class="form-control" name="locate" placeholder="locate..." value="{{ isset($locate) ? $locate : ''}}">
+                <button type="submit" class="btn btn-primary">locate</button>
             </div>
         </form>
     </div>

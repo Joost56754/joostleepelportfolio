@@ -54,18 +54,18 @@ class ProjectController extends Controller
      */
     public function locate(Request $request, Project $project)
     {
-        $search = $request->search;
+        $locate = $request->locate;
 
-        $projects = Project::where(function ($query) use ($search) {
-            $query->where('title', 'like', "%$search%")
-                ->orWhere('description', 'like', "%$search%");
+        $projects = Project::where(function ($query) use ($locate) {
+            $query->where('title', 'like', "%$locate%")
+                ->orWhere('description', 'like', "%$locate%");
         })
-            ->orWhereHas('category', function ($query) use ($search) {
-                $query->where('name', 'like', "%$search%");
+            ->orWhereHas('category', function ($query) use ($locate) {
+                $query->where('name', 'like', "%$locate%");
             })
             ->get();
 
-        return view('Projects.index', compact('projects', 'search'));
+        return view('Projects.index', compact('projects', 'locate'));
     }
     public function show(Project $Project)
     {
