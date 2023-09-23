@@ -86,6 +86,19 @@
         .table tbody tr:hover {
             background-color: #e0e0e0;
         }
+        footer {
+            background-color: #3490dc;
+            color: black;
+            padding: 16px;
+        }
+        footer h3 {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        footer p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -135,8 +148,6 @@
                         <a class="btn btn-primary" href="{{ route('Projects.edit',$project->id) }}">Bewerk</a>
                         <a class="btn btn-info" href="{{ route('Projects.show',$project->id) }}">Project verwijderen?</a>
                         @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Verwijder</button>
                     </form>
                 </td>
             </tr>
@@ -145,5 +156,23 @@
     </table>
 </div>
 </div>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Contactgegevens</h3>
+                <p>Naam: [/]</p>
+                <p>E-mail: [/]</p>
+                <p>Telefoon: [/]</p>
+            </div>
+            <div class="col-md-6">
+                <h3>Adres</h3>
+                <p>Straat: [/]</p>
+                <p>Stad: [/]</p>
+                <p>Postcode: [/]</p>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
